@@ -1,0 +1,48 @@
+mode: 1, populateByTurn()
+2967
+3272
+2868
+3156
+3061
+2889
+3170
+2885
+3031
+2879
+Avg: 3017.8
+
+mode: 2, populateBySize()
+3055
+3060
+3004
+2849
+3477
+3119
+3031
+2976
+3018
+3088
+Avg: 3067.7
+
+mode: 3, populateBySpeed()
+2865
+2780
+3041
+3000
+2806
+2905
+3061
+3081
+2970
+3030
+Avg: 2953.9
+
+Analysis:
+There is little variance between the population algorithms, which is not surprising given they work very similarly and
+optimization saves only a few milliseconds per success(optimization condition used).
+Given this, it's hard to declare which process is better. Since the amount of time saved in optimization is small, the
+variable possible interference from background processes cannot be ignored. Optimal test conditions would be on a
+dedicated processor that is not scheduling threads with competing system processes. Also, I did not know how to build
+a fully automated test system since threads cannot be "restarted". I was limited to manually running each trial, and
+hence a small trial set. We could have seen more distinct variance if method results extrapolated over many trials.
+As is, populateBySpeed(), where priority is given to the historically faster queue, edges out the other methods.
